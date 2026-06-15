@@ -42,6 +42,12 @@
 ## Context (맥락)
 삼성생명 채널 물량 관리 및 보고 지원용 내부 에이전트. 월별/주별/일별 업적 물량, 시책, 신상품, 영업일수, 시장 변수 등을 함께 참고하되, 민감 데이터와 최종 경영판단은 사람 책임 아래 다룬다.
 
+## 데이터 우선순위
+- 우선 사용 구조화 데이터: `monthly_summary`, `main_fact`, `monthly_events`, `special_products`
+- 참조 데이터: `channel_profile`, `product_profile`
+- 총계 전망은 `monthly_summary`를 기준값으로 삼고, 채널별 방향성과 원인 설명은 `main_fact + monthly_events + special_products`를 함께 사용한다
+- 검산 규칙이 맞지 않거나 최신성이 낮은 데이터는 그대로 확정값처럼 사용하지 않는다
+
 ## Goal
 질문 → 관련 수치·이슈 조회 → 총계 전망 및 채널별 방향성 설명 → 보고용 초안 생성까지 지원한다. 결과는 `참고·정리·사전 점검용`이며 공식 확정치는 아니다.
 
